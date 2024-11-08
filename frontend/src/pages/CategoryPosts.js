@@ -25,10 +25,17 @@ export default function PostList()
 		fetchCategory();
 
     },[])
+<<<<<<< HEAD
     if(!category)
         {
          return <p> Loading...</p>
         }
+=======
+	if(!category)
+	{
+		return <p> Loading...</p>
+	}
+>>>>>>> 3171e52e40ceec0d5eac569a4b65c8884b89f26f
     return <>
     <main>
         <div class="container mt-4">
@@ -36,9 +43,26 @@ export default function PostList()
                 
                 <div class="col-lg-8">
                     <h1 class="mb-4">{category.name}</h1>
+<<<<<<< HEAD
                     {
                         posts.length> 0 ? posts.map((post) => <Post post={post}/>) : <h3> No Posts Available</h3>
                     }
+=======
+
+                   
+                    <div class="card mb-4">
+						<div class="row">
+							
+							<div class="card-body col-md-8">
+							<h1 class="mb-4">{category.name}</h1>
+                                                          {
+                                                         posts.length> 0 ? posts.map((post) => <Post post={post}/>) : <h3> No Posts Available</h3>
+                                                         }	
+							</div>
+						</div>
+
+					</div>
+>>>>>>> 3171e52e40ceec0d5eac569a4b65c8884b89f26f
 
                  
 
