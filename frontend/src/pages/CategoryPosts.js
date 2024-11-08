@@ -7,47 +7,38 @@ import { useParams } from "react-router-dom";
 export default function PostList()
 {
     const [posts,setposts]=useState([]);
-	const [categories,setCategories]=useState([])
+	const [category,setCategory]=useState(null)
      const {id}=useParams() 
     const fetchPosts= async () =>{ 
       const response= await  axios.get(`http://localhost:8000/api/posts/category/${id}`)
       setposts(response.data);
 
     }
-	const fetchCategories =async () =>{ 
-		const response= await  axios.get('http://localhost:8000/api/categories')
-		setCategories(response.data);
+	const fetchCategory =async () =>{ 
+		const response= await  axios.get(`http://localhost:8000/api/categories/${id}`)
+		setCategory(response.data);
 
 	}
 
     useEffect(()=> {
         fetchPosts();
-		fetchCategories();
+		fetchCategory();
 
     },[])
+    if(!category)
+        {
+         return <p> Loading...</p>
+        }
     return <>
     <main>
         <div class="container mt-4">
             <div class="row">
                 
                 <div class="col-lg-8">
-                    <h1 class="mb-4">Category 1</h1>
-
-                   
-                    <div class="card mb-4">
-						<div class="row">
-							<div class="col-sm-12 col-md-3">
-								<img class="img-fluid h-100" src="https://via.placeholder.com/800x400"
-									 alt="..."/>
-							</div>
-							<div class="card-body col-md-8">
-								<h5 class="card-title">Post Title 1</h5>
-								<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-								<a href="#" class="btn btn-primary">Read More</a>
-							</div>
-						</div>
-
-					</div>
+                    <h1 class="mb-4">{category.name}</h1>
+                    {
+                        posts.length> 0 ? posts.map((post) => <Post post={post}/>) : <h3> No Posts Available</h3>
+                    }
 
                  
 
