@@ -12,8 +12,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/BlogAPP')
-.then(()=> console.log('MongoDB Connected'))
+mongoose.connect('mongodb+srv://jeevaprakashm2021ecea:root@cluster0.63utv.mongodb.net/')
+.then(()=> console.log('MongoDB Connected'))  
 .catch(err=> console.log("DB error",err));
 
 //Use Routes

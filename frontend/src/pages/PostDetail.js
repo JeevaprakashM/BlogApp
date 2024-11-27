@@ -9,7 +9,7 @@ export default function  PostDetail(){
    
          const fetchPost=async ()=> {
             try{
-              const response=  await axios.get(`http://localhost:8000/api/posts/${id}`);
+              const response=  await axios.get(`https://blogapp-backend-i8a4.onrender.com/api/posts/${id}`);
               setpost(response.data);
 
             }

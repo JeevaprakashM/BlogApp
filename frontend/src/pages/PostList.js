@@ -7,12 +7,12 @@ export default function PostList()
     const [posts,setposts]=useState([]);
 	const [categories,setCategories]=useState([])
     const fetchPosts= async () =>{ 
-      const response= await  axios.get('http://localhost:8000/api/posts')
+      const response= await  axios.get('https://blogapp-backend-i8a4.onrender.com/api/posts')
       setposts(response.data);
 
     }
 	const fetchCategories =async () =>{ 
-		const response= await  axios.get('http://localhost:8000/api/categories')
+		const response= await  axios.get('https://blogapp-backend-i8a4.onrender.com/api/categories')
 		setCategories(response.data);
 
 	}
